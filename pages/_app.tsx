@@ -3,6 +3,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import "../styles/globals.css";
 import { moviesSlice as moviesReducer } from "../store/reducer/moviesReducer";
+import { Layout } from "../Layout";
+import "bootstrap/dist/css/bootstrap.css";
 
 const store = configureStore({
   reducer: {
@@ -13,7 +15,9 @@ const store = configureStore({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
   );
 }
